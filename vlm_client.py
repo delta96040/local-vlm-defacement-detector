@@ -16,7 +16,7 @@ import json
 import requests
 
 OLLAMA_URL = "http://localhost:11434"
-DEFAULT_MODEL = "qwen2.5vl:3b"  # ~3.2GB — comfortable on a 6GB laptop GPU
+DEFAULT_MODEL = "moondream"  # ~1.7GB — comfortable on a 4GB laptop GPU
 
 STATE_EXTRACTION_PROMPT = """You are inspecting a screenshot of a webpage for a security \
 monitoring tool. Describe ONLY what is objectively visible. Respond in this exact format:

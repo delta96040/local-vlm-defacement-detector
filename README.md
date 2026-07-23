@@ -37,12 +37,12 @@ worked on Layer 1 specifically, not the whole engine. This is a clean-room rebui
 ### 1. Install Ollama (free, open source, local LLM runtime)
 
 Download from [ollama.com](https://ollama.com) (Windows/Mac/Linux). Then pull a small
-vision-language model that fits comfortably on a 6GB laptop GPU:
+vision-language model that fits comfortably on a 4GB laptop GPU:
 
 ```bash
-ollama pull qwen2.5vl:3b      # ~3.2GB — default, good balance of quality and speed
-# or, for an even lighter footprint:
-ollama pull moondream          # ~1.7GB — faster, slightly less detailed descriptions
+ollama pull moondream          # ~1.7GB — default, fits comfortably on 4GB VRAM
+# or, if you have 6GB+ VRAM and want more detailed descriptions:
+ollama pull qwen2.5vl:3b      # ~3.2GB — higher quality, needs more headroom
 ```
 
 If you use a different model, edit `DEFAULT_MODEL` at the top of `vlm_client.py`.
@@ -64,7 +64,7 @@ Opens at `http://localhost:8501`. The app works even without Ollama running — 
 diff column and sample scenarios still function, and it'll just tell you the VLM side is
 unavailable until Ollama is up.
 
-**Performance note:** on an RTX 3050 (6GB VRAM), `qwen2.5vl:3b` typically responds in a few
+**Performance note:** on a 4GB VRAM laptop GPU, `moondream` typically responds in a few
 seconds per image on GPU. If Ollama falls back to CPU (e.g. VRAM is busy with something else),
 expect it to take longer — still workable for a demo, just less snappy.
 
